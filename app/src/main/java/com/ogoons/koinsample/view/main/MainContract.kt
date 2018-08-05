@@ -1,7 +1,7 @@
-package com.ogoons.koinsample.view
+package com.ogoons.koinsample.view.main
 
-import com.ogoons.dagger2sample.view.base.BasePresenter
-import com.ogoons.dagger2sample.view.base.BaseView
+import com.ogoons.koinsample.view.base.BasePresenter
+import com.ogoons.koinsample.view.base.BaseView
 
 interface MainContract {
 
@@ -14,7 +14,7 @@ interface MainContract {
     interface View : BaseView<Presenter> {
 
         fun onLoginChange(isLogged: Boolean)
-        
+
     }
 
 }

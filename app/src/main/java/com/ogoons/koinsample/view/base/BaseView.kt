@@ -1,4 +1,4 @@
-package com.ogoons.dagger2sample.view.base
+package com.ogoons.koinsample.view.base
 
 interface BaseView<P> {
 

@@ -4,18 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
-    tools:context=".view.main.MainFragment">
+    tools:context=".view.sub.SubActivity">
 
     <Button
-        android:id="@+id/btn_login"
-        android:text="login"
+        android:id="@+id/btn_check_logged"
+        android:text="check logged"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_sub_activity"
-        android:text="go to sub"
+        android:id="@+id/btn_logout"
+        android:text="logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
