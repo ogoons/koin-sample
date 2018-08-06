@@ -1,11 +1,10 @@
 package com.ogoons.koinsample.view.sub
 
 import com.ogoons.koinsample.component.LoginManager
-import com.ogoons.koinsample.view.base.BasePresenter
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-class SubPresenter : BasePresenter<SubContract.View>, SubContract.Presenter, KoinComponent {
+class SubPresenter : SubContract.Presenter, KoinComponent {
 
     override lateinit var view: SubContract.View
 
