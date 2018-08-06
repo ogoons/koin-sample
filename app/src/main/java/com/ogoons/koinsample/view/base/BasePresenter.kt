@@ -4,8 +4,4 @@ interface BasePresenter<V> {
 
     var view: V
 
-//    fun attachView(view: V)
-//
-//    fun detachView(retainInstance: Boolean = false)
-
 }

@@ -12,10 +12,7 @@ class MainPresenter : MainContract.Presenter, KoinComponent {
 
     override fun login() {
         loginManager.login()
-
         view.onLoginChange(loginManager.isLogged)
-
-//        view.onLoginChange(loginManager.isLogged)
     }
 
 }

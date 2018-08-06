@@ -18,8 +18,9 @@ import org.koin.android.ext.android.inject
  * A simple [Fragment] subclass.
  *
  */
-class MainFragment : BaseFragment<MainContract.Presenter, MainContract.View>(), MainContract.View {
+class MainFragment : BaseFragment(), MainContract.View {
 
+    // lazy
     override val presenter by inject<MainContract.Presenter>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +29,15 @@ class MainFragment : BaseFragment<MainContract.Presenter, MainContract.View>(), 
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        presenter.view = this
+    override fun onLoginChange(isLogged: Boolean) {
+        Toast.makeText(requireContext(), isLogged.toString(), Toast.LENGTH_LONG).show()
+    }
 
+    override fun setupPresenter() {
+        presenter.view = this
+    }
+
+    override fun setupView() {
         btn_login.setOnClickListener {
             presenter.login()
         }
@@ -39,10 +45,6 @@ class MainFragment : BaseFragment<MainContract.Presenter, MainContract.View>(), 
         btn_sub_activity.setOnClickListener {
             startActivity(Intent(requireActivity(), SubActivity::class.java))
         }
-    }
-
-    override fun onLoginChange(isLogged: Boolean) {
-        Toast.makeText(requireContext(), isLogged.toString(), Toast.LENGTH_LONG).show()
     }
 
 }

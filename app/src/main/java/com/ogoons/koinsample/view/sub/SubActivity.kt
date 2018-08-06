@@ -1,21 +1,21 @@
 package com.ogoons.koinsample.view.sub
 
-import android.os.Bundle
 import android.widget.Toast
 import com.ogoons.koinsample.R
 import com.ogoons.koinsample.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_sub.*
 import org.koin.android.ext.android.inject
 
-class SubActivity : BaseActivity<SubContract.Presenter, SubContract.View>(), SubContract.View {
+class SubActivity : BaseActivity(), SubContract.View {
 
     override val presenter by inject<SubContract.Presenter>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sub)
-
+    override fun setupPresenter() {
         presenter.view = this
+    }
+
+    override fun setupView() {
+        setContentView(R.layout.activity_sub)
 
         btn_check_logged.setOnClickListener {
             presenter.isLogged()
