@@ -4,9 +4,7 @@ import com.ogoons.koinsample.component.LoginManager
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-class SubPresenter : SubContract.Presenter, KoinComponent {
-
-    override lateinit var view: SubContract.View
+class SubPresenter(override val view: SubContract.View) : SubContract.Presenter, KoinComponent {
 
     private val loginManager by inject<LoginManager>()
 

@@ -1,24 +1,34 @@
 package com.ogoons.koinsample.di
 
 import com.ogoons.koinsample.component.LoginManager
+import com.ogoons.koinsample.view.main.MainActivity
 import com.ogoons.koinsample.view.main.MainContract
 import com.ogoons.koinsample.view.main.MainFragment
 import com.ogoons.koinsample.view.main.MainPresenter
 import com.ogoons.koinsample.view.sub.SubContract
 import com.ogoons.koinsample.view.sub.SubPresenter
-import org.koin.dsl.module.applicationContext
+import org.koin.dsl.module.module
 
-val appModule = applicationContext {
-    bean { LoginManager() }
+/**
+ * Application
+ */
+val appModule = module {
+    single { LoginManager() }
 }
 
-val mainModule = applicationContext {
+/**
+ * Main
+ */
+val mainModule = module {
     factory { MainFragment() }
-    factory { MainPresenter() as MainContract.Presenter }
+    factory { (view: MainContract.View) -> MainPresenter(view) as MainContract.Presenter }
 }
 
-val subModule = applicationContext {
-    factory { SubPresenter() as SubContract.Presenter }
+/**
+ * Sub
+ */
+val subModule = module {
+    factory { (view: SubContract.View) -> SubPresenter(view) as SubContract.Presenter }
 }
 
 val appModules = listOf(appModule, mainModule, subModule)

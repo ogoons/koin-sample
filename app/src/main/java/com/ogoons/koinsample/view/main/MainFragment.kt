@@ -13,6 +13,7 @@ import com.ogoons.koinsample.view.base.BaseFragment
 import com.ogoons.koinsample.view.sub.SubActivity
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 /**
  * A simple [Fragment] subclass.
@@ -21,7 +22,7 @@ import org.koin.android.ext.android.inject
 class MainFragment : BaseFragment(), MainContract.View {
 
     // lazy
-    override val presenter by inject<MainContract.Presenter>()
+    override val presenter by inject<MainContract.Presenter> { parametersOf(this) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,7 +35,7 @@ class MainFragment : BaseFragment(), MainContract.View {
     }
 
     override fun setupPresenter() {
-        presenter.view = this
+//        presenter.view = this
     }
 
     override fun setupView() {
