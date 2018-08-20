@@ -9,11 +9,15 @@ interface MainContract {
 
         fun login()
 
+        fun sayHello()
+
     }
 
     interface View : BaseView<Presenter> {
 
         fun onLoginChange(isLogged: Boolean)
+
+        fun onSayHello(result: String)
 
     }
 

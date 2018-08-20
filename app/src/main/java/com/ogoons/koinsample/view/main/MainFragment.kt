@@ -13,6 +13,7 @@ import com.ogoons.koinsample.view.base.BaseFragment
 import com.ogoons.koinsample.view.sub.SubActivity
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 /**
@@ -21,8 +22,10 @@ import org.koin.core.parameter.parametersOf
  */
 class MainFragment : BaseFragment(), MainContract.View {
 
+    private val viewModel: MainViewModel by viewModel()
+
     // lazy
-    override val presenter by inject<MainContract.Presenter> { parametersOf(this) }
+    override val presenter by inject<MainContract.Presenter> { parametersOf(this, viewModel.repository ) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,17 +38,17 @@ class MainFragment : BaseFragment(), MainContract.View {
     }
 
     override fun setupPresenter() {
-//        presenter.view = this
     }
 
     override fun setupView() {
-        btn_login.setOnClickListener {
-            presenter.login()
-        }
+        btn_login.setOnClickListener { presenter.login() }
 
         btn_sub_activity.setOnClickListener {
             startActivity(Intent(requireActivity(), SubActivity::class.java))
         }
+    }
+
+    override fun onSayHello(result: String) {
     }
 
 }
