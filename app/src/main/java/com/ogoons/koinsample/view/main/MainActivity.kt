@@ -28,6 +28,7 @@ class MainActivity : BaseActivity(), MainContract.View {
         button.setOnClickListener { presenter.login() }
 
         updateLoginCount()
+
         updateLogged()
 
         supportFragmentManager.beginTransaction()

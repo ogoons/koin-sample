@@ -18,13 +18,9 @@ class SubActivity : BaseActivity(), SubContract.View {
     override fun setupView() {
         setContentView(R.layout.activity_sub)
 
-        btn_check_logged.setOnClickListener {
-            presenter.isLogged()
-        }
+        btn_check_logged.setOnClickListener { presenter.isLogged() }
 
-        btn_logout.setOnClickListener {
-            presenter.logout()
-        }
+        btn_logout.setOnClickListener { presenter.logout() }
     }
 
     override fun onLoginChange(isLogged: Boolean) {
