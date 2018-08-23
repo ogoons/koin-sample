@@ -22,10 +22,10 @@ import org.koin.core.parameter.parametersOf
  */
 class MainFragment : BaseFragment(), MainContract.View {
 
-    private val viewModel: MainViewModel by viewModel()
+//    private val viewModel: MainViewModel by viewModel()
 
     // lazy
-    override val presenter by inject<MainContract.Presenter> { parametersOf(this, viewModel.repository ) }
+    override val presenter by inject<MainContract.Presenter>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

@@ -12,6 +12,7 @@ class SubActivity : BaseActivity(), SubContract.View {
     override val presenter by inject<SubContract.Presenter> { parametersOf(this) }
 
     override fun setupPresenter() {
+        presenter.view = this
     }
 
     override fun setupView() {
@@ -27,7 +28,7 @@ class SubActivity : BaseActivity(), SubContract.View {
     }
 
     override fun onLoginChange(isLogged: Boolean) {
-        Toast.makeText(this, isLogged.toString(), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, if (isLogged) "Logged" else "Not logged", Toast.LENGTH_LONG).show()
     }
 
 }

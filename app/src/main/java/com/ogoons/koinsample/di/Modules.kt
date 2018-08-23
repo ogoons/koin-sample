@@ -19,8 +19,8 @@ val appModule = module {
  */
 val mainModule = module {
     factory { MainFragment() }
-    factory { (view: MainContract.View, repository: MainRepository) -> MainPresenter(view, repository) as MainContract.Presenter }
-    factory { MainRepository() }
+    single { (repository: MainRepository) -> MainPresenter(repository) as MainContract.Presenter }
+    single { MainRepository() }
 
     viewModel { MainViewModel(get()) }
 }
@@ -29,7 +29,7 @@ val mainModule = module {
  * Sub
  */
 val subModule = module {
-    factory { (view: SubContract.View) -> SubPresenter(view) as SubContract.Presenter }
+    factory { SubPresenter() as SubContract.Presenter }
 }
 
 val appModules = listOf(appModule, mainModule, subModule)
