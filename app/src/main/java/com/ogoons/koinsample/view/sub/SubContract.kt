@@ -9,13 +9,13 @@ interface SubContract {
 
         fun logout()
 
-        fun isLogged()
+        fun isSignedIn()
 
     }
 
     interface View : BaseView<Presenter> {
 
-        fun onLoginChange(isLogged: Boolean)
+        fun onLoginChange(isSignedIn: Boolean)
         
     }
 

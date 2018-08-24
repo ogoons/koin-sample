@@ -12,8 +12,8 @@ class MainPresenter(val repository: MainRepository) : MainContract.Presenter, Ko
 
     override fun login() {
         loginManager.login()
-        repository.loggedCount++
-        view.onLoginChange(loginManager.isLogged)
+        repository.signed_inCount++
+        view.onLoginChange(loginManager.isSignedIn)
     }
 
     override fun sayHello() {

@@ -29,7 +29,7 @@ class MainActivity : BaseActivity(), MainContract.View {
 
         updateLoginCount()
 
-        updateLogged()
+        updateSignedIn()
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, get<MainFragment>(), MainFragment::class.java.simpleName)
@@ -37,19 +37,19 @@ class MainActivity : BaseActivity(), MainContract.View {
     }
 
     private fun updateLoginCount() {
-        tv_login_count.text = String.format("%d Count", viewModel.repository.loggedCount)
+        tv_login_count.text = String.format("%d Count", viewModel.repository.signed_inCount)
     }
 
-    private fun updateLogged() {
+    private fun updateSignedIn() {
         val loginManager = get<LoginManager>()
-        tv_logged.text = if (loginManager.isLogged) "Logged" else "Not logged"
+        tv_signed_in.text = if (loginManager.isSignedIn) "Signed in" else "Not signed in"
     }
 
-    override fun onLoginChange(isLogged: Boolean) {
-        if (isLogged) {
+    override fun onLoginChange(isSignedIn: Boolean) {
+        if (isSignedIn) {
             updateLoginCount()
         }
-        updateLogged()
+        updateSignedIn()
     }
 
     override fun onSayHello(result: String) {
@@ -58,7 +58,7 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun onResume() {
         super.onResume()
-        updateLogged()
+        updateSignedIn()
     }
 
 }

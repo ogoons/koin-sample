@@ -2,14 +2,14 @@ package com.ogoons.koinsample.component
 
 class LoginManager {
 
-    var isLogged = false
+    var isSignedIn = false
 
     fun login() {
-        isLogged = true
+        isSignedIn = true
     }
 
     fun logout() {
-        isLogged = false
+        isSignedIn = false
     }
 
 }

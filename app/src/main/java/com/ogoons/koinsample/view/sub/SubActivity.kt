@@ -18,13 +18,13 @@ class SubActivity : BaseActivity(), SubContract.View {
     override fun setupView() {
         setContentView(R.layout.activity_sub)
 
-        btn_check_logged.setOnClickListener { presenter.isLogged() }
+        btn_check_signed_in.setOnClickListener { presenter.isSignedIn() }
 
         btn_logout.setOnClickListener { presenter.logout() }
     }
 
-    override fun onLoginChange(isLogged: Boolean) {
-        Toast.makeText(this, if (isLogged) "Logged" else "Not logged", Toast.LENGTH_LONG).show()
+    override fun onLoginChange(isSignedIn: Boolean) {
+        Toast.makeText(this, if (isSignedIn) "Signed in" else "Not signed in", Toast.LENGTH_LONG).show()
     }
 
 }

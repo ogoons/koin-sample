@@ -10,13 +10,13 @@ class SubPresenter : SubContract.Presenter, KoinComponent {
 
     private val loginManager by inject<LoginManager>()
 
-    override fun isLogged() {
-        view.onLoginChange(loginManager.isLogged)
+    override fun isSignedIn() {
+        view.onLoginChange(loginManager.isSignedIn)
     }
 
     override fun logout() {
         loginManager.logout()
-        view.onLoginChange(loginManager.isLogged)
+        view.onLoginChange(loginManager.isSignedIn)
     }
 
 }

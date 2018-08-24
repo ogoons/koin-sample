@@ -22,8 +22,6 @@ import org.koin.core.parameter.parametersOf
  */
 class MainFragment : BaseFragment(), MainContract.View {
 
-//    private val viewModel: MainViewModel by viewModel()
-
     // lazy
     override val presenter by inject<MainContract.Presenter>()
 
@@ -33,8 +31,8 @@ class MainFragment : BaseFragment(), MainContract.View {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    override fun onLoginChange(isLogged: Boolean) {
-        Toast.makeText(requireContext(), isLogged.toString(), Toast.LENGTH_LONG).show()
+    override fun onLoginChange(isSignedIn: Boolean) {
+        Toast.makeText(requireContext(), isSignedIn.toString(), Toast.LENGTH_LONG).show()
     }
 
     override fun setupPresenter() {
