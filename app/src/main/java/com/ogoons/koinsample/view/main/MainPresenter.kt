@@ -8,6 +8,9 @@ class MainPresenter(private val repository: MainRepository) : MainContract.Prese
 
     override lateinit var view: MainContract.View
 
+    /**
+     * Singleton
+     */
     private val loginManager by inject<LoginManager>()
 
     override fun signIn() {
