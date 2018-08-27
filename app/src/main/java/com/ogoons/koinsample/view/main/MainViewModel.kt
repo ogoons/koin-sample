@@ -6,6 +6,4 @@ class MainViewModel(val repository: MainRepository) : ViewModel() {
 
     fun sayHello() = "${repository.sayHello()} from $this"
 
-
-
 }
