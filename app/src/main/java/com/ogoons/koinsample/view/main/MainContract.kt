@@ -7,7 +7,7 @@ interface MainContract {
 
     interface Presenter : BasePresenter<View> {
 
-        fun login()
+        fun signIn()
 
         fun sayHello()
 
@@ -15,7 +15,9 @@ interface MainContract {
 
     interface View : BaseView<Presenter> {
 
-        fun onLoginChange(isSignedIn: Boolean)
+        fun onSignIn()
+
+        fun onSignInChange(isSignedIn: Boolean)
 
         fun onSayHello(result: String)
 

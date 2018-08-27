@@ -2,6 +2,7 @@ package com.ogoons.koinsample.di
 
 import com.ogoons.koinsample.component.LoginManager
 import com.ogoons.koinsample.view.main.*
+import com.ogoons.koinsample.view.main.section.SectionFragment
 import com.ogoons.koinsample.view.sub.SubContract
 import com.ogoons.koinsample.view.sub.SubPresenter
 import org.koin.android.viewmodel.ext.koin.viewModel
@@ -18,7 +19,8 @@ val appModule = module {
  * Main
  */
 val mainModule = module {
-    factory { MainFragment() }
+    factory { SectionFragment() }
+
     single { (repository: MainRepository) -> MainPresenter(repository) as MainContract.Presenter }
     single { MainRepository() }
 

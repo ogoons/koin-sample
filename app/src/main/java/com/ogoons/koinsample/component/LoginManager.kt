@@ -4,11 +4,11 @@ class LoginManager {
 
     var isSignedIn = false
 
-    fun login() {
+    fun signIn() {
         isSignedIn = true
     }
 
-    fun logout() {
+    fun signOut() {
         isSignedIn = false
     }
 

@@ -20,11 +20,18 @@ class SubActivity : BaseActivity(), SubContract.View {
 
         btn_check_signed_in.setOnClickListener { presenter.isSignedIn() }
 
-        btn_logout.setOnClickListener { presenter.logout() }
+        btn_logout.setOnClickListener { presenter.signIn() }
     }
 
-    override fun onLoginChange(isSignedIn: Boolean) {
+    override fun onSignInChange(isSignedIn: Boolean) {
         Toast.makeText(this, if (isSignedIn) "Signed in" else "Not signed in", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onSignIn() {
+    }
+
+    override fun onSignOut() {
+        finish()
     }
 
 }

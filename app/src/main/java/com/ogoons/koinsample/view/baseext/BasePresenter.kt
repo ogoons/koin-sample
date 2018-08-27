@@ -2,6 +2,9 @@ package com.ogoons.koinsample.view.baseext
 
 import java.lang.ref.WeakReference
 
+/**
+ * 사용 안 함
+ */
 abstract class BasePresenter<V> : MvpPresenter<V> {
 
     private var viewRef: WeakReference<V>? = null

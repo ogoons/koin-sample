@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 
 class MainRepository : ViewModel() {
 
-    var signed_inCount = 0
+    var signedInCount = 0
 
     fun sayHello() = "Hello, Koin"
 

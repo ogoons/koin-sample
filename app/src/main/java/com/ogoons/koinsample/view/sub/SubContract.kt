@@ -7,7 +7,7 @@ interface SubContract {
 
     interface Presenter : BasePresenter<View> {
 
-        fun logout()
+        fun signIn()
 
         fun isSignedIn()
 
@@ -15,7 +15,11 @@ interface SubContract {
 
     interface View : BaseView<Presenter> {
 
-        fun onLoginChange(isSignedIn: Boolean)
+        fun onSignInChange(isSignedIn: Boolean)
+
+        fun onSignIn()
+
+        fun onSignOut()
         
     }
 
